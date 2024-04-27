@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Support Guide</title>
+</head>
+<style>
+
+    @font-face {
+        font-family: NotoSans;
+        src: url(NotoSans.ttf);
+        font-weight: 800;
+        font-size: 24px;
+    }
+    
+    @font-face {
+        font-family: NotoSansArabic;
+        src: url(NotoSansArabic.ttf);
+        font-weight: 800;
+    }
+
+    :root {
+        --lightest : #ffffff;
+        --dark : #2c2c2c;
+        --darker : #252525;
+        --darkest : #212121;
+    }
+
+    html {
+        font-family: NotoSans, NotoSansArabic;
+        color: var(--lightest);
+        background-color: var(--darkest);
+    }
+
+    .navbar {
+        position: relative;
+        background-color: var(--darker);
+        margin: -8px;
+        height: 64px;
+        box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
+        align-content: center;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .navbar a {
+        color: var(--lightest);
+        padding: 16px;
+        text-decoration: dotted;
+        text-align: center;
+    }
+
+    .navbar a:hover {
+        background-color: var(--dark);
+    }
+
+    .navbar select {
+        position: absolute;
+        top: 0px;
+        right: 1rem;
+        color: var(--lightest);
+        font-family: NotoSans, NotoSansArabic;
+        font-size: 18px;
+        background: none;
+        border: none;
+        height: 64px;
+        
+    }
+
+    .navbar select:hover {
+        background-color: var(--dark);
+    }
+    
+</style>
+<body>
+    <div class="navbar">
+        <a href="#RightToLeft">Right To Left</a>
+        <a href="#RightCharacters">Right Characters</a>
+        <a href="#RightGrammar">Right Grammar</a>
+        <select>
+            <option value="ENG">English</option>
+            <option value="AR">Arabic</option>
+        </select>
+    </div>
+
+    <p>
+        Blablabla
+        
+        Blablabla
+        
+        Blablabla
+        
+        Blablabla
+        
+        Blablabla
+
+        Blablabla
+        
+        Blablabla
+        
+        Blablabla
+    </p>
+</body>
+</html>
