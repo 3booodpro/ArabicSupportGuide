@@ -48,13 +48,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 50%);
     }
 
     .navbar a {
         color: var(--lightest);
         padding: 16px;
-        text-decoration: dotted;
+        text-decoration: none;
         text-align: center;
     }
 
@@ -64,49 +64,86 @@
 
     .navbar select {
         position: absolute;
-        top: 0px;
+        top: 6px;
         right: 1rem;
         color: var(--lightest);
         font-family: NotoSans, NotoSansArabic;
         font-size: 18px;
         background: none;
         border: none;
-        height: 64px;
+        height: 54px;
         
     }
 
     .navbar select:hover {
         background-color: var(--dark);
     }
+
+    .navbar select option {
+        font-family: NotoSans, NotoSansArabic;
+        font-size: 18px;
+        background: none;
+        border: none;
+        background-color: var(--dark);
+    }
     
+    .web-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .normal-space {
+        margin: 16px;
+    }
+
+    .block {
+        background-color: var(--darker);
+        border-radius: 16px;
+        box-shadow: 8px 8px 4px rgb(1, 1, 1, 0.25);
+    }
+
+    .normal-block-size {
+        width: 576px;
+        height: 256px;
+        padding: 64px;
+    }
+
+    .small-block-size {
+        width: 960px;
+        height: 270px;
+        padding: 64px;
+    }
+
 </style>
 <body>
     <div class="navbar">
-        <a href="#RightToLeft">Right To Left</a>
-        <a href="#RightCharacters">Right Characters</a>
-        <a href="#RightGrammar">Right Grammar</a>
+        <a href="#RightToLeft">&#x2022; Right To Left</a>
+        <a href="#RightCharacters">&#x2022; Right Characters</a>
+        <a href="#RightGrammar">&#x2022; Right Grammar</a>
         <select>
-            <option value="ENG">English</option>
+            <option value="EN">English</option>
             <option value="AR">Arabic</option>
         </select>
     </div>
-
-    <p>
-        Blablabla
-        
-        Blablabla
-        
-        Blablabla
-        
-        Blablabla
-        
-        Blablabla
-
-        Blablabla
-        
-        Blablabla
-        
-        Blablabla
-    </p>
+    
+    <div class="web-content">
+        <h1 class="normal-space">
+            <br>
+            - Main points to consider when adding Arabic support :
+        </h1>
+        <img class="block normal-block-size normal-space" src="Title.svg">
+        <h2 style="max-width: 1024px;">
+            Most languages are written from left-to-right. However, the same rule doesn’t apply on Arabic.  Here’s Some common mistakes when trying to add the Arabic support:
+        </h2>
+        <div class="block small-block-size normal-space">
+        </div>
+    </div>
 </body>
 </html>
