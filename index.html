@@ -93,6 +93,8 @@
         flex-flow: column;
         text-align: center;
         align-items: center;
+        scale: 0.75 0.75;
+        transform: translate(0, -15%);
     }
 
     h1 {
@@ -118,7 +120,21 @@
     .small-block-size {
         width: 960px;
         height: 270px;
-        padding: 64px;
+        
+        flex-wrap: wrap;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .frame-left {
+        background-color: var(--dark);
+        top: 0px;
+        left: 0px;
+        border-radius: 16px 0px 0px 16px;
+        position: relative;
+        z-index: 1;
+        width: 248px;
+        height: 270px;
     }
 
 </style>
@@ -140,9 +156,15 @@
         </h1>
         <img class="block normal-block-size normal-space" src="Title.svg">
         <h2 style="max-width: 1024px;">
-            Most languages are written from left-to-right. However, the same rule doesn’t apply on Arabic.  Here’s Some common mistakes when trying to add the Arabic support:
+            <br>
+            <br>
+            <br>
+            Most languages are written from left-to-right. However, the same rule doesn’t apply on Arabic. Here’s Some common mistakes when trying to add the Arabic support:
         </h2>
         <div class="block small-block-size normal-space">
+            <div class="frame-left">
+                
+            </div>
         </div>
     </div>
 </body>
