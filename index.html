@@ -93,28 +93,49 @@
         flex-flow: column;
         text-align: center;
         align-items: center;
-        scale: 0.75 0.75;
-        transform: translate(0, -15%);
     }
 
     h1 {
         font-size: 24px;
     }
 
+    p {
+        font-size: 22px;
+    }
+
     .normal-space {
         margin: 16px;
+    }
+
+    .large-space {
+        margin: 64px;
     }
 
     .block {
         background-color: var(--darker);
         border-radius: 16px;
         box-shadow: 8px 8px 4px rgb(1, 1, 1, 0.25);
+        display: flex;
+        justify-content: center;
+    }
+
+    .large-block-size {
+        width: 960px;
+        height: 480px;
+        
+        flex-wrap: wrap;
+        flex-direction: column;
+        display: flex;
     }
 
     .normal-block-size {
         width: 576px;
         height: 256px;
         padding: 64px;
+
+        flex-wrap: wrap;
+        flex-direction: column;
+        display: flex;
     }
 
     .small-block-size {
@@ -135,6 +156,34 @@
         z-index: 1;
         width: 248px;
         height: 270px;
+
+        flex-direction: column;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .frame-right {
+        background-color: var(--dark);
+        top: 0px;
+        right: 0px;
+        border-radius: 0px 16px 16px 0px;
+        position: relative;
+        z-index: 1;
+        width: 248px;
+        height: 270px;
+
+        flex-direction: column;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .seperator {
+        background-color: var(--lightest);
+        width: 1024px;
+        height: 4px;
+        margin-top: 64px;
     }
 
 </style>
@@ -150,22 +199,150 @@
     </div>
     
     <div class="web-content">
-        <h1 class="normal-space">
-            <br>
+        <h1 class="normal-space" style="margin-top: 8rem;">
             - Main points to consider when adding Arabic support :
         </h1>
+        
         <img class="block normal-block-size normal-space" src="Title.svg">
-        <h2 style="max-width: 1024px;">
-            <br>
-            <br>
-            <br>
+        
+        <h2 style="max-width: 1024px; margin-top: 8rem;">
             Most languages are written from left-to-right. However, the same rule doesn’t apply on Arabic. Here’s Some common mistakes when trying to add the Arabic support:
         </h2>
+        
         <div class="block small-block-size normal-space">
             <div class="frame-left">
-                
+                <img src="Arrow1.svg" style="margin-top: 32px; margin-left: 190px;">
+                <img src="AssalamuAlaikum-Correct.svg" style="margin-top: -8px;">
+                <img src="Arrow2.svg" style="margin-right: 175px;">
+                <img src="PeaceBeUponYou.svg" style="margin-top: -20px;">
+            </div>
+            <p style="width: 640px;">
+                as you can see, the arrow explains from where the typing started and the direction of it.
+                <br>
+                <br>
+                Arabic Typing Direction is from Right-to-Left instead of Left-to-Right as in English.
+            </p>
+        </div>
+        
+        <div class="block small-block-size normal-space">
+            <p style="width: calc(100% - 248px);">
+                Try to display “ السلام عليكم ” in your program.
+                <br>
+                <br>
+                If you see something like this, then there’s
+                <br>
+                a problem with the text algorithm in your program
+            </p>
+            <div class="frame-right">
+                <img src="AssalamuAlaikum-Incorrect1.svg">
             </div>
         </div>
+
+        <div class="block small-block-size normal-space">
+            <p style="width: calc(100% - 248px);">
+                Another shape could appear to you is this.
+                <br>
+                <br>
+                This result with wrong direction and wrong characters shape
+                <br>
+                (we will get into that in a bit)
+            </p>
+            <div class="frame-right">
+                <img src="AssalamuAlaikum-Incorrect2.svg">
+            </div>
+        </div>
+        
+        <h2 class="large-space" style="width: max-content;">
+            Some resources to recommend for this issue is: <a href="https://github.com/unicode-org/icu">ICU</a>, <a href="https://github.com/fribidi/fribidi">GNU FriBidi</a>
+            <br>
+            These Libraries can help you with (BiDirectional text support) which allows you to type from right to left.
+        </h2>
+
+        <div class="seperator">
+        </div>
+
+        <h2 class="large-space">
+            Characters in Arabic don’t act as the characters in Latin-Languages.
+            <br>
+            So there’s another thing to consider when adding Arabic Support.
+        </h2>
+
+        <div class="block large-block-size normal-space">
+            <div class="frame-left" style="height: 100%;">
+                <img src="CharactersForms 1.svg">
+            </div>
+            <p style="width: 696px;">
+                Each character have variations that depend on its position in the word.
+                <br>
+                <br>
+                Let’s take the character “ س ” as an example.
+                <br>
+                <br>
+                It’s shape in the beginning of the word is “ سـ ” as in “ سالم ”.
+                <br>
+                in the middle “ ـسـ ” as in “ مسلم ”.
+                <br>
+                at the end “ ـس ” as in “ ملابس ”.
+                <br>
+                <br>
+                if its not connected to any other character it will be typed as it is “ س ” as in “ قندس ”.
+            </p>
+        </div>
+        
+        <h2 style="width: max-content;">
+            This can be confusing for some people. This <a href="https://en.wikipedia.org/wiki/Arabic_script_in_Unicode">resource</a> can help understand it better.
+        </h2>
+        
+        <div class="block small-block-size normal-space">
+            <p style="width: calc(100% - 248px);">
+                After implementing Bidirectional text.
+                <br>
+                Try displaying “ السلام عليكم ” again.
+                <br>
+                if you got something like this instead of the correct one above.
+                <br>
+                Then you didn’t implement the correct character shape.
+            </p>
+            <div class="frame-right">
+                <img src="AssalamuAlaikum-Incorrect3.svg">
+            </div>
+        </div>
+        
+        <h2>
+            <a href="https://harfbuzz.github.io/">HarfBuzz</a> is a great library for text shaping.
+            <br>
+            so Implementing it will solve this issue.
+        </h2>
+
+        <div class="seperator">
+        </div>
+        
+        <h2 class="large-space" style="width: max-content;">
+            Finally, Arabic is a language after all. So grammar is needed to create an understandable
+            <br>
+            healthy sentence. And here’s some common mistakes with the grammar in Arabic.
+        </h2>
+
+        <img src="Table.svg">
+
+        <h2>
+            there’s a lot more..
+        </h2>
+
+        <h2 class="large-space" style="width: max-content;">
+            We Arabic-Speakers sometimes struggle with it so it’s no-brainier you will too.
+            <br>
+            So This website can help you to reduce this issue with the most rate. Called <a href="https://sahehly.com/">Sahehly</a>.
+        </h2>
+
+        <h2 class="large-space">
+            you can contribute to this website on <a href="https://github.com/3booodpro/ArabicSupportGuide">github</a>.
+        </h2>
+    </div>
+    <div class="block" style="box-shadow: 0px -8px 4px rgb(1, 1, 1, 0.25); border-radius: 16px 16px 0px 0px; bottom: 0; left: 0; margin-bottom: -8px; padding: 0px; width: 100%; height: 64px;">
+        <p>
+            Made by Abdulwahab Najib (aka 3boood_pro)
+        </p>
     </div>
 </body>
 </html>
