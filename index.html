@@ -31,6 +31,11 @@
         font-family: NotoSans, NotoSansArabic;
         color: var(--lightest);
         background-color: var(--darkest);
+        scroll-behavior: smooth;;
+    }
+
+    a {
+        color: var(--lightest);
     }
 
     .navbar {
@@ -205,7 +210,7 @@
         
         <img class="block normal-block-size normal-space" src="Title.svg">
         
-        <h2 style="max-width: 1024px; margin-top: 8rem;">
+        <h2 id="RightToLeft" style="max-width: 1024px; margin-top: 8rem;">
             Most languages are written from left-to-right. However, the same rule doesn’t apply on Arabic. Here’s Some common mistakes when trying to add the Arabic support:
         </h2>
         
@@ -261,7 +266,7 @@
         <div class="seperator">
         </div>
 
-        <h2 class="large-space">
+        <h2 id="RightCharacters" class="large-space">
             Characters in Arabic don’t act as the characters in Latin-Languages.
             <br>
             So there’s another thing to consider when adding Arabic Support.
@@ -317,7 +322,7 @@
         <div class="seperator">
         </div>
         
-        <h2 class="large-space" style="width: max-content;">
+        <h2 id="RightGrammar" class="large-space" style="width: max-content;">
             Finally, Arabic is a language after all. So grammar is needed to create an understandable
             <br>
             healthy sentence. And here’s some common mistakes with the grammar in Arabic.
